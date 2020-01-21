@@ -689,7 +689,7 @@ This is %s using send_comms_message() to send you a message.]],
   end)
 
   --[[--------------------------------------------------------------------------
-  | Demonstrate takeDamage
+  | Demonstrate takeDamage                                                     |
   ----------------------------------------------------------------------------]]
   addGMFunction("20 energy", function()
     player:
