@@ -27,17 +27,19 @@ x = %s, y = %s]],
       -- Move the player 500m "east" and 500m "south" on the map
       setPosition(x + 500.0, y + 500.0):
       addToShipLog(
-      [[player:setPosition(x + 500.0, y + 500.0)]],
-      "Yellow")
+        [[player:setPosition(x + 500.0, y + 500.0)]],
+        "Yellow")
+
     -- Collect the player's new coordinates
     x, y = player:getPosition()
 
+    player:
       -- Report the player's new coordinates
-    player:addToShipLog(
-      string.format(
-        [[x = %s, y = %s]],
-        tostring(x), tostring(y)),
-      "Green")
+      addToShipLog(
+        string.format(
+          [[x = %s, y = %s]],
+          tostring(x), tostring(y)),
+        "Green")
   end)
 
   --[[--------------------------------------------------------------------------
