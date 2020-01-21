@@ -686,6 +686,37 @@ This is %s using send_comms_message() to send you a message.]],
         "Green")
   end)
 
+  --[[--------------------------------------------------------------------------
+  | Demonstrate takeDamage
+  ----------------------------------------------------------------------------]]
+  addGMFunction("20 energy", function()
+    player:
+      -- Deal 20 energy damage originating from coordinates x 1000, y 0
+      takeDamage(20, "energy", 1000, 0):
+      addToShipLog(
+        [[You took 20 energy damage from coordinates 1000, 0.]],
+        "Red")
+  end)
+
+  addGMFunction("20 kinetic", function()
+    player:
+      -- Deal 20 kinetic damage originating from coordinates x 1000, y 0
+      takeDamage(20, "kinetic", 1000, 0):
+      addToShipLog(
+        [[You took 20 kinetic damage from coordinates 1000, 0.]],
+        "Gray")
+  end)
+
+  addGMFunction("20 emp", function()
+    player:
+      -- Deal 20 emp damage originating from coordinates x 1000, y 0
+      -- EMP damage only affects shields
+      takeDamage(20, "emp", 1000, 0):
+      addToShipLog(
+        [[You took 20 emp damage from coordinates 1000, 0.]],
+        "Blue")
+  end)
+
 end
 
 --[[----------------------------------------------------------------------------
