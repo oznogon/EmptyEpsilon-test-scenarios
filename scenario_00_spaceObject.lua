@@ -8,7 +8,7 @@ function init()
     setFaction("Human Navy"):
     setTemplate("Atlantis"):
     setCallSign("Epsilon")
-  
+
   --[[--------------------------------------------------------------------------
   | Demonstrate setPosition and getPosition                                    |
   ----------------------------------------------------------------------------]]
@@ -20,7 +20,7 @@ function init()
       -- Report the player's current coordinates
       addToShipLog(
         string.format(
-[[x, y = player:getPosition()
+          [[x, y = player:getPosition()
 x = %s, y = %s]],
           tostring(x), tostring(y)),
         "White"):
@@ -210,9 +210,11 @@ x = %s, y = %s]],
       setFaction("Human Navy"):
       setCallSign("Comms script test " .. tostring(
         math.floor(random(0,100)))):
-      setPosition(random(-5000, 5000), random(-5000, 5000)):
-      -- Override the default comms with a comms script
-      setCommsScript("comms_station_scenario_00_spaceObject.lua")
+      setPosition(random(-5000, 5000), random(-5000, 5000))
+
+    -- Override the default comms with a comms script
+    comms_script_test:setCommsScript(
+      "comms_station_scenario_00_spaceObject.lua")
   end)
 
   --[[--------------------------------------------------------------------------
@@ -225,9 +227,10 @@ x = %s, y = %s]],
       setFaction("Human Navy"):
       setCallSign("Comms function test " .. tostring(
         math.floor(random(0,100)))):
-      setPosition(random(-5000, 5000), random(-5000, 5000)):
-      -- Override the default comms with a comms function
-      setCommsFunction(commsFunction)
+      setPosition(random(-5000, 5000), random(-5000, 5000))
+
+    -- Override the default comms with a comms function
+    comms_function_test:setCommsFunction(commsStation)
   end)
 
   --[[--------------------------------------------------------------------------
@@ -541,16 +544,158 @@ This is %s using send_comms_message() to send you a message.]],
           tostring(radar_signature_test:getRadarSignatureBiological())),
         "Green")
   end)
+
+  --[[--------------------------------------------------------------------------
+  | Demonstrate scanning and description functions                             |
+  ----------------------------------------------------------------------------]]
+  addGMFunction("Scan functions", function()
+    -- Initialize a list of string-equivalent EScanStates
+    local scan_states = {
+      "notscanned",
+      "friendorfoeidentified",
+      "simplescan",
+      "fullscan"
+    }
+
+    -- Report on each scan state's description
+    function reportDescriptions(states, object)
+      -- For each state ...
+      for index, state in ipairs(states) do
+        player:
+          -- ... report its description on the specified object
+          addToShipLog(
+            string.format(
+              [[getDescription(%s) = %s]],
+              state,
+              object:getDescription(state)),
+            "Green")
+      end
+    end
+
+    -- Create a ship to scan
+    scan_test = CpuShip():
+      setTemplate("Atlantis"):
+      setFaction("Human Navy"):
+      setCallSign("Radar Signature Test " .. tostring(
+          math.floor(random(0,100)))):
+      setPosition(random(-10000, 10000), random(-10000, 10000)):
+      -- Set scanned and unscanned descriptions with setDescriptions
+      setDescriptions(
+        [[Unscanned value]],
+        [[Scanned value]])
+
+    -- Report on the test ship
+    player:
+      addToShipLog(
+        string.format(
+          [[Created scan_test as %s]],
+          scan_test:getCallSign()),
+        "White"):
+      addToShipLog(
+        -- Long strings require '=' in the fences
+        [=[scan_test:setDescriptions([[Unscanned value]], [[Scanned value]])]=],
+        "Yellow")
+
+    -- Report the test ship's current descriptions
+    reportDescriptions(scan_states, scan_test)
+
+    -- Set the description with setDescription
+    scan_test:setDescription([[Using setDescription()]])
+    player:
+      addToShipLog(
+        [=[scan_test:setDescription([[Using setDescription()]])]=],
+        "Yellow")
+
+    -- Report the test ship's new descriptions
+    reportDescriptions(scan_states, scan_test)
+
+    -- Set the description with setDescriptionForScanState
+    for index, state in ipairs(scan_states) do
+      scan_test:
+        setDescriptionForScanState(
+          state,
+          string.format(
+            [[Description set by setDescriptionForScanState(%s)]],
+            state))
+    end
+
+    player:
+      addToShipLog(
+        [[scan_test:setDescriptionForScanState(...) set for each scan state]],
+        "Yellow")
+
+    -- Report the test ship's new descriptions
+    reportDescriptions(scan_states, scan_test)
+
+    -- Set the test ship's scanning parameters
+    scan_test:setScanningParameters(2, 3)
+
+    player:
+      addToShipLog([[scan_test:setScanningParameters(2, 3)]],
+        "Yellow"):
+      -- Report the ship's scanning parameters
+      addToShipLog(
+        string.format(
+          [[scan_test:scanningComplexity(scan_test) = %s]],
+          tostring(scan_test:scanningComplexity(scan_test))),
+        "Green"):
+      addToShipLog(
+        string.format(
+          [[scan_test:scanningChannelDepth(scan_test) = %s]],
+          tostring(scan_test:scanningChannelDepth(scan_test))),
+        "Green"):
+      -- Report whether the player has been scanned by the test ship
+      addToShipLog(
+        string.format(
+          [[player:isScannedBy(scan_test) = %s]],
+          tostring(player:isScannedBy(scan_test))),
+        "Green"):
+      -- Report whether the test ship has been scanned by the player
+      addToShipLog(
+        string.format(
+          [[scan_test:isScannedBy(player) = %s]],
+          tostring(scan_test:isScannedBy(player))),
+        "Green")
+
+    -- Set all factions as not having scanned the test ship
+    scan_test:setScanned(false)
+
+    player:
+      addToShipLog(
+        [[scan_test:setScanned(false)]],
+        "Yellow"):
+      addToShipLog(
+        -- Report whether the Human Navy faction has scanned the test ship
+        string.format(
+          [[scan_test:isScannedByFaction("Human Navy") = %s]],
+          tostring(scan_test:isScannedByFaction("Human Navy"))),
+        "Green")
+
+    -- Set the Human Navy faction as having scanned the test ship
+    scan_test:setScannedByFaction("Human Navy", true)
+
+    player:
+      addToShipLog(
+        [[scan_test:setScannedByFaction("Human Navy", true)]],
+        "Yellow"):
+      addToShipLog(
+        -- Report whether the Human Navy faction has scanned the test ship
+        string.format(
+          [[scan_test:isScannedByFaction("Human Navy") = %s]],
+          tostring(scan_test:isScannedByFaction("Human Navy"))),
+        "Green")
+  end)
+
 end
 
 --[[----------------------------------------------------------------------------
 | Target function of setCommsFunction                                          |
 ------------------------------------------------------------------------------]]
-function commsFunction()
+function commsStation()
   -- Respond when the player hails this ship
   setCommsMessage(
     string.format(
-      [[Hello, %s. You're talking to commsFunction().]],
+      [[Hello, %s. You're talking to commsStation().]],
       player:getCallSign()))
 end
 
@@ -558,7 +703,7 @@ end
 | Clean up the current play field                                              |
 ------------------------------------------------------------------------------]]
 function cleanup()
-  -- Find all objects in the play field using getAllObjects
+  -- Find all objects in the play field
   for index, object in ipairs(getAllObjects()) do
     -- Move any PlayerSpaceships to the map origin
     if object.typeName == "PlayerSpaceship" then
