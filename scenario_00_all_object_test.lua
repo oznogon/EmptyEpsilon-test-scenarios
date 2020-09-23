@@ -718,25 +718,25 @@ addermk3_1 = CpuShip():
   setTemplate("Adder MK3"):
   setCallSign("Adder MK3"):
   setPosition(15000, 30000):
-  orderIdle():
+  orderIdle()
 addermk7_1 = CpuShip():
   setFaction("TSN"):
   setTemplate("Adder MK7"):
   setCallSign("Adder MK7"):
   setPosition(17500, 32500):
-  orderIdle():
+  orderIdle()
 addermk8_1 = CpuShip():
   setFaction("TSN"):
   setTemplate("Adder MK8"):
   setCallSign("Adder MK8"):
   setPosition(20000, 35000):
-  orderIdle():
+  orderIdle()
 addermk9_1 = CpuShip():
   setFaction("TSN"):
   setTemplate("Adder MK9"):
   setCallSign("Adder MK9"):
   setPosition(22500, 37500):
-  orderIdle():
+  orderIdle()
 
 -- - Frigates
 flavia_1 = CpuShip():
