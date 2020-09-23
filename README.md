@@ -1,5 +1,5 @@
-Test scenarios for [EmptyEpsilon](http://emptyepsilon.org) ([GitHub](/daid/EmptyEpsilon)).
+Test scenarios for [EmptyEpsilon](https://daid.github.io/EmptyEpsilon/) ([GitHub](https://github.com/daid/EmptyEpsilon)).
 
-- spaceObject: GM functions to demonstrate all spaceObject scripting functions.
-- allobjtest: One of every object.
-- turrettest: Test turreted ships.
+- spaceObject: GM functions to demonstrate all spaceObject scripting functions. (incomplete)
+- all\_object\_test: One of every object.
+- turret\_test: Test turreted ships.
