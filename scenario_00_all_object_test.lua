@@ -646,6 +646,7 @@ starhammerii_1 = CpuShip():
   orderIdle():
   setWeaponStorage("Homing", 3):
   setWeaponStorage("EMP", 1)
+-- Added in https://github.com/daid/EmptyEpsilon/commit/4f804d38aee561cba2c99ab2d850079cf7846513#diff-3dafbf2226c7ec62d5fb4b2fbd8bbe3e
 crucible_1 = CpuShip():
   setFaction("Ghosts"):
   setTemplate("Crucible"):
@@ -711,6 +712,31 @@ wxlindworm_1 = CpuShip():
   orderIdle():
   setWeaponStorage("Homing", 0):
   setWeaponStorage("HVLI", 4)
+-- Added in https://github.com/daid/EmptyEpsilon/commit/93893b81e67d7279e711481462d9807946ebd975
+addermk3_1 = CpuShip():
+  setFaction("TSN"):
+  setTemplate("Adder MK3"):
+  setCallSign("Adder MK3"):
+  setPosition(15000, 30000):
+  orderIdle():
+addermk7_1 = CpuShip():
+  setFaction("TSN"):
+  setTemplate("Adder MK7"):
+  setCallSign("Adder MK7"):
+  setPosition(17500, 32500):
+  orderIdle():
+addermk8_1 = CpuShip():
+  setFaction("TSN"):
+  setTemplate("Adder MK8"):
+  setCallSign("Adder MK8"):
+  setPosition(20000, 35000):
+  orderIdle():
+addermk9_1 = CpuShip():
+  setFaction("TSN"):
+  setTemplate("Adder MK9"):
+  setCallSign("Adder MK9"):
+  setPosition(22500, 37500):
+  orderIdle():
 
 -- - Frigates
 flavia_1 = CpuShip():
@@ -812,6 +838,55 @@ storm_1 = CpuShip():
   setTemplate("Storm"):
   setCallSign("Storm"):
   setPosition(32500, 10000):
+  orderIdle()
+-- New in https://github.com/daid/EmptyEpsilon/pull/1069
+elarap2_1 = CpuShip():
+  setFaction("TSN"):
+  setTemplate("Elara P2"):
+  setCallSign("Elara P2"):
+  setPosition(35000, 7500):
+  orderIdle()
+nirvanar3_1 = CpuShip():
+  setFaction("USN"):
+  setTemplate("Nirvana R3"):
+  setCallSign("Nirvana R3"):
+  setPosition(37500, 5000):
+  orderIdle()
+stalkerq5_1 = CpuShip():
+  setFaction("CUF"):
+  setTemplate("Stalker Q5"):
+  setCallSign("Stalker Q5"):
+  setPosition(40000, 2500):
+  orderIdle()
+stalkerr5_1 = CpuShip():
+  setFaction("CUF"):
+  setTemplate("Stalker R5"):
+  setCallSign("Stalker R5"):
+  setPosition(42500, 0):
+  orderIdle()
+fiendg3_1 = CpuShip():
+  setFaction("TSN"):
+  setTemplate("Fiend G3"):
+  setCallSign("Fiend G3"):
+  setPosition(45000, -2500):
+  orderIdle()
+fiendg4_1 = CpuShip():
+  setFaction("TSN"):
+  setTemplate("Fiend G4"):
+  setCallSign("Fiend G4"):
+  setPosition(47500, -5000):
+  orderIdle()
+fiendg5_1 = CpuShip():
+  setFaction("TSN"):
+  setTemplate("Fiend G5"):
+  setCallSign("Fiend G5"):
+  setPosition(50000, -7500):
+  orderIdle()
+fiendg6_1 = CpuShip():
+  setFaction("TSN"):
+  setTemplate("Fiend G6"):
+  setCallSign("Fiend G6"):
+  setPosition(52500, -10000):
   orderIdle()
 
 -- - Dreadnoughts
