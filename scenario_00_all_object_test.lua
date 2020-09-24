@@ -844,13 +844,13 @@ elarap2_1 = CpuShip():
   setFaction("TSN"):
   setTemplate("Elara P2"):
   setCallSign("Elara P2"):
-  setPosition(35000, 7500):
+  setPosition(37500, 7500):
   orderIdle()
 nirvanar3_1 = CpuShip():
   setFaction("USN"):
   setTemplate("Nirvana R3"):
   setCallSign("Nirvana R3"):
-  setPosition(37500, 5000):
+  setPosition(40000, 5000):
   orderIdle()
 stalkerq5_1 = CpuShip():
   setFaction("CUF"):
