@@ -1,0 +1,281 @@
+-- Name: All object loop test
+-- Description: Every ship, station, and object, but make it programmatic.
+-- Type: Basic
+
+factions = {
+  "Arlenians",
+  "CUF",
+  "Exuari",
+  "Ghosts",
+  "Human Navy",
+  "Independent",
+  "Kraylor",
+  "Ktlitans",
+  "TSN",
+  "USN"
+}
+
+functional_objects = {
+  WarpJammer(),
+  Mine(),
+  SupplyDrop():setEnergy(500)
+}
+
+stations = {
+  SpaceStation():setTemplate("Small Station"),
+  SpaceStation():setTemplate("Medium Station"),
+  SpaceStation():setTemplate("Large Station"),
+  SpaceStation():setTemplate("Huge Station")
+}
+
+ships = {
+  CpuShip():setTemplate("Adder MK3"):orderIdle(),
+  CpuShip():setTemplate("Adder MK4"):orderIdle(),
+  CpuShip():setTemplate("Adder MK5"):orderIdle(),
+  CpuShip():setTemplate("Adder MK6"):orderIdle(),
+  CpuShip():setTemplate("Adder MK7"):orderIdle(),
+  CpuShip():setTemplate("Adder MK8"):orderIdle(),
+  CpuShip():setTemplate("Adder MK9"):orderIdle(),
+  CpuShip():setTemplate("Adv. Gunship"):orderIdle(),
+  CpuShip():setTemplate("Adv. Striker"):orderIdle(),
+  CpuShip():setTemplate("Atlantis X23"):orderIdle(),
+  CpuShip():setTemplate("Battlestation"):orderIdle(),
+  CpuShip():setTemplate("Blockade Runner"):orderIdle(),
+  CpuShip():setTemplate("Crucible"):orderIdle(),
+  CpuShip():setTemplate("Cruiser"):orderIdle(),
+  CpuShip():setTemplate("Defense platform"):orderIdle(),
+  CpuShip():setTemplate("Dreadnought"):orderIdle(),
+  CpuShip():setTemplate("Elara P2"):orderIdle(),
+  CpuShip():setTemplate("Equipment Freighter 1"):orderIdle(),
+  CpuShip():setTemplate("Equipment Freighter 2"):orderIdle(),
+  CpuShip():setTemplate("Equipment Freighter 3"):orderIdle(),
+  CpuShip():setTemplate("Equipment Freighter 4"):orderIdle(),
+  CpuShip():setTemplate("Equipment Freighter 5"):orderIdle(),
+  CpuShip():setTemplate("Equipment Jump Freighter 3"):orderIdle(),
+  CpuShip():setTemplate("Equipment Jump Freighter 4"):orderIdle(),
+  CpuShip():setTemplate("Equipment Jump Freighter 5"):orderIdle(),
+  CpuShip():setTemplate("Fiend G3"):orderIdle(),
+  CpuShip():setTemplate("Fiend G4"):orderIdle(),
+  CpuShip():setTemplate("Fiend G5"):orderIdle(),
+  CpuShip():setTemplate("Fiend G6"):orderIdle(),
+  CpuShip():setTemplate("Fighter"):orderIdle(),
+  CpuShip():setTemplate("Flavia Falcon"):orderIdle(),
+  CpuShip():setTemplate("Flavia"):orderIdle(),
+  CpuShip():setTemplate("Fuel Freighter 1"):orderIdle(),
+  CpuShip():setTemplate("Fuel Freighter 2"):orderIdle(),
+  CpuShip():setTemplate("Fuel Freighter 3"):orderIdle(),
+  CpuShip():setTemplate("Fuel Freighter 4"):orderIdle(),
+  CpuShip():setTemplate("Fuel Freighter 5"):orderIdle(),
+  CpuShip():setTemplate("Fuel Jump Freighter 3"):orderIdle(),
+  CpuShip():setTemplate("Fuel Jump Freighter 4"):orderIdle(),
+  CpuShip():setTemplate("Fuel Jump Freighter 5"):orderIdle(),
+  CpuShip():setTemplate("Garbage Freighter 1"):orderIdle(),
+  CpuShip():setTemplate("Garbage Freighter 2"):orderIdle(),
+  CpuShip():setTemplate("Garbage Freighter 3"):orderIdle(),
+  CpuShip():setTemplate("Garbage Freighter 4"):orderIdle(),
+  CpuShip():setTemplate("Garbage Freighter 5"):orderIdle(),
+  CpuShip():setTemplate("Garbage Jump Freighter 3"):orderIdle(),
+  CpuShip():setTemplate("Garbage Jump Freighter 4"):orderIdle(),
+  CpuShip():setTemplate("Garbage Jump Freighter 5"):orderIdle(),
+  CpuShip():setTemplate("Goods Freighter 1"):orderIdle(),
+  CpuShip():setTemplate("Goods Freighter 2"):orderIdle(),
+  CpuShip():setTemplate("Goods Freighter 3"):orderIdle(),
+  CpuShip():setTemplate("Goods Freighter 4"):orderIdle(),
+  CpuShip():setTemplate("Goods Freighter 5"):orderIdle(),
+  CpuShip():setTemplate("Goods Jump Freighter 3"):orderIdle(),
+  CpuShip():setTemplate("Goods Jump Freighter 4"):orderIdle(),
+  CpuShip():setTemplate("Goods Jump Freighter 5"):orderIdle(),
+  CpuShip():setTemplate("Gunship"):orderIdle(),
+  CpuShip():setTemplate("Hathcock"):orderIdle(),
+  CpuShip():setTemplate("Jump Carrier"):orderIdle(),
+  CpuShip():setTemplate("Karnack"):orderIdle(),
+  CpuShip():setTemplate("Ktlitan Breaker"):orderIdle(),
+  CpuShip():setTemplate("Ktlitan Destroyer"):orderIdle(),
+  CpuShip():setTemplate("Ktlitan Drone"):orderIdle(),
+  CpuShip():setTemplate("Ktlitan Feeder"):orderIdle(),
+  CpuShip():setTemplate("Ktlitan Fighter"):orderIdle(),
+  CpuShip():setTemplate("Ktlitan Queen"):orderIdle(),
+  CpuShip():setTemplate("Ktlitan Scout"):orderIdle(),
+  CpuShip():setTemplate("Ktlitan Worker"):orderIdle(),
+  CpuShip():setTemplate("Maverick"):orderIdle(),
+  CpuShip():setTemplate("Missile Cruiser"):orderIdle(),
+  CpuShip():setTemplate("MT52 Hornet"):orderIdle(),
+  CpuShip():setTemplate("MU52 Hornet"):orderIdle(),
+  CpuShip():setTemplate("Nirvana R3"):orderIdle(),
+  CpuShip():setTemplate("Nirvana R5"):orderIdle(),
+  CpuShip():setTemplate("Nirvana R5A"):orderIdle(),
+  CpuShip():setTemplate("Odin"):orderIdle(),
+  CpuShip():setTemplate("Personnel Freighter 1"):orderIdle(),
+  CpuShip():setTemplate("Personnel Freighter 2"):orderIdle(),
+  CpuShip():setTemplate("Personnel Freighter 3"):orderIdle(),
+  CpuShip():setTemplate("Personnel Freighter 4"):orderIdle(),
+  CpuShip():setTemplate("Personnel Freighter 5"):orderIdle(),
+  CpuShip():setTemplate("Personnel Jump Freighter 3"):orderIdle(),
+  CpuShip():setTemplate("Personnel Jump Freighter 4"):orderIdle(),
+  CpuShip():setTemplate("Personnel Jump Freighter 5"):orderIdle(),
+  CpuShip():setTemplate("Phobos M3"):orderIdle(),
+  CpuShip():setTemplate("Phobos T3"):orderIdle(),
+  CpuShip():setTemplate("Piranha F12"):orderIdle(),
+  CpuShip():setTemplate("Piranha F12.M"):orderIdle(),
+  CpuShip():setTemplate("Piranha F8"):orderIdle(),
+  CpuShip():setTemplate("Ranus U"):orderIdle(),
+  CpuShip():setTemplate("Repulse"):orderIdle(),
+  CpuShip():setTemplate("Stalker Q5"):orderIdle(),
+  CpuShip():setTemplate("Stalker Q7"):orderIdle(),
+  CpuShip():setTemplate("Stalker R5"):orderIdle(),
+  CpuShip():setTemplate("Stalker R7"):orderIdle(),
+  CpuShip():setTemplate("Starhammer II"):orderIdle(),
+  CpuShip():setTemplate("Storm"):orderIdle(),
+  CpuShip():setTemplate("Strikeship"):orderIdle(),
+  CpuShip():setTemplate("Transport1x1"):orderIdle(),
+  CpuShip():setTemplate("Transport1x2"):orderIdle(),
+  CpuShip():setTemplate("Transport1x3"):orderIdle(),
+  CpuShip():setTemplate("Transport1x4"):orderIdle(),
+  CpuShip():setTemplate("Transport1x5"):orderIdle(),
+  CpuShip():setTemplate("Transport2x1"):orderIdle(),
+  CpuShip():setTemplate("Transport2x2"):orderIdle(),
+  CpuShip():setTemplate("Transport2x3"):orderIdle(),
+  CpuShip():setTemplate("Transport2x4"):orderIdle(),
+  CpuShip():setTemplate("Transport2x5"):orderIdle(),
+  CpuShip():setTemplate("Transport3x1"):orderIdle(),
+  CpuShip():setTemplate("Transport3x2"):orderIdle(),
+  CpuShip():setTemplate("Transport3x3"):orderIdle(),
+  CpuShip():setTemplate("Transport3x4"):orderIdle(),
+  CpuShip():setTemplate("Transport3x5"):orderIdle(),
+  CpuShip():setTemplate("Transport4x1"):orderIdle(),
+  CpuShip():setTemplate("Transport4x2"):orderIdle(),
+  CpuShip():setTemplate("Transport4x3"):orderIdle(),
+  CpuShip():setTemplate("Transport4x4"):orderIdle(),
+  CpuShip():setTemplate("Transport4x5"):orderIdle(),
+  CpuShip():setTemplate("Transport5x1"):orderIdle(),
+  CpuShip():setTemplate("Transport5x2"):orderIdle(),
+  CpuShip():setTemplate("Transport5x3"):orderIdle(),
+  CpuShip():setTemplate("Transport5x4"):orderIdle(),
+  CpuShip():setTemplate("Transport5x5"):orderIdle(),
+  CpuShip():setTemplate("Tug"):orderIdle(),
+  CpuShip():setTemplate("Weapons platform"):orderIdle(),
+  CpuShip():setTemplate("WX-Lindworm"):orderIdle(),
+  PlayerSpaceship():setFaction("Human Navy"):setTemplate("Atlantis"),
+  PlayerSpaceship():setFaction("Human Navy"):setTemplate("Benedict"),
+  PlayerSpaceship():setFaction("Human Navy"):setTemplate("Ender"),
+  PlayerSpaceship():setFaction("Human Navy"):setTemplate("Flavia P.Falcon"),
+  PlayerSpaceship():setFaction("Human Navy"):setTemplate("Kiriya"),
+  PlayerSpaceship():setFaction("Human Navy"):setTemplate("MP52 Hornet"),
+  PlayerSpaceship():setFaction("Human Navy"):setTemplate("Nautilus"),
+  PlayerSpaceship():setFaction("Human Navy"):setTemplate("Phobos M3P"),
+  PlayerSpaceship():setFaction("Human Navy"):setTemplate("Piranha"),
+  PlayerSpaceship():setFaction("Human Navy"):setTemplate("Player Cruiser"),
+  PlayerSpaceship():setFaction("Human Navy"):setTemplate("Player Fighter"),
+  PlayerSpaceship():setFaction("Human Navy"):setTemplate("Player Missile Cr."),
+  PlayerSpaceship():setFaction("Human Navy"):setTemplate("Striker"),
+  PlayerSpaceship():setFaction("Human Navy"):setTemplate("ZX-Lindworm")
+}
+
+models = {
+  Artifact():setModel("AdlerLongRangeScoutGreen"),
+  Artifact():setModel("AdlerLongRangeScoutGrey"),
+  Artifact():setModel("AdlerLongRangeScoutWhite"),
+  Artifact():setModel("ammo_box"),
+  Artifact():setModel("artifact1"),
+  Artifact():setModel("artifact2"),
+  Artifact():setModel("artifact3"),
+  Artifact():setModel("artifact4"),
+  Artifact():setModel("artifact5"),
+  Artifact():setModel("artifact6"),
+  Artifact():setModel("artifact7"),
+  Artifact():setModel("artifact8"),
+  Artifact():setModel("AtlasHeavyFighterBlue"),
+  Artifact():setModel("AtlasHeavyFighterGreen"),
+  Artifact():setModel("AtlasHeavyFighterGrey"),
+  Artifact():setModel("AtlasHeavyFighterWhite"),
+  Artifact():setModel("battleship_destroyer_2_upgraded"),
+  Artifact():setModel("HeavyCorvetteBlue"),
+  Artifact():setModel("HeavyCorvetteGreen"),
+  Artifact():setModel("HeavyCorvetteGrey"),
+  Artifact():setModel("HeavyCorvetteWhite"),
+  Artifact():setModel("HeavyCorvetteYellow"),
+  Artifact():setModel("LaserCorvetteBlue"),
+  Artifact():setModel("LaserCorvetteGreen"),
+  Artifact():setModel("LaserCorvetteGrey"),
+  Artifact():setModel("LaserCorvetteRed"),
+  Artifact():setModel("LaserCorvetteWhite"),
+  Artifact():setModel("LaserCorvetteYellow"),
+  Artifact():setModel("LightCorvetteBlue"),
+  Artifact():setModel("LightCorvetteGreen"),
+  Artifact():setModel("LightCorvetteRed"),
+  Artifact():setModel("LightCorvetteWhite"),
+  Artifact():setModel("LightCorvetteYellow"),
+  Artifact():setModel("LindwurmFighterBlue"),
+  Artifact():setModel("LindwurmFighterGreen"),
+  Artifact():setModel("LindwurmFighterGrey"),
+  Artifact():setModel("LindwurmFighterRed"),
+  Artifact():setModel("LindwurmFighterWhite"),
+  Artifact():setModel("MineLayerCorvetteBlue"),
+  Artifact():setModel("MineLayerCorvetteGreen"),
+  Artifact():setModel("MineLayerCorvetteGrey"),
+  Artifact():setModel("MineLayerCorvetteRed"),
+  Artifact():setModel("MineLayerCorvetteWhite"),
+  Artifact():setModel("MineLayerCorvetteYellow"),
+  Artifact():setModel("MissileCorvetteBlue"),
+  Artifact():setModel("MissileCorvetteGrey"),
+  Artifact():setModel("MissileCorvetteRed"),
+  Artifact():setModel("MissileCorvetteWhite"),
+  Artifact():setModel("MissileCorvetteYellow"),
+  Artifact():setModel("MultiGunCorvetteBlue"),
+  Artifact():setModel("MultiGunCorvetteGreen"),
+  Artifact():setModel("MultiGunCorvetteGrey"),
+  Artifact():setModel("MultiGunCorvetteRed"),
+  Artifact():setModel("MultiGunCorvetteWhite"),
+  Artifact():setModel("MultiGunCorvetteYellow"),
+  Artifact():setModel("SensorBuoyMKI"),
+  Artifact():setModel("SensorBuoyMKII"),
+  Artifact():setModel("SensorBuoyMKIII"),
+  Artifact():setModel("shield_generator"),
+  Artifact():setModel("small_frigate_1"),
+  Artifact():setModel("small_frigate_2"),
+  Artifact():setModel("space_frigate_6"),
+  Artifact():setModel("WespeScoutBlue"),
+  Artifact():setModel("WespeScoutGreen"),
+  Artifact():setModel("WespeScoutGrey"),
+  Artifact():setModel("WespeScoutWhite")
+}
+
+everything = {
+  functional_objects,
+  stations,
+  ships,
+  models
+}
+
+coordinates = {-30000, 30000}
+
+for everything_index in pairs(everything) do
+  for index in pairs(everything[everything_index]) do
+    everything[everything_index][index]:
+      setFaction(factions[math.random(#factions)]):
+      setRotation(0):
+      setPosition(coordinates[1], coordinates[2])
+    coordinates[2] = coordinates[2] - 2500
+
+    if coordinates[2] < -30000 then
+      coordinates[1] = coordinates[1] + 2500
+      coordinates[2] = 30000
+    end
+  end
+end
+
+terrain_objects = {
+  BlackHole(),
+  Nebula(),
+  WormHole():setTargetPosition(0, 0),
+  Asteroid(),
+  VisualAsteroid(),
+}
+
+coordinates = {30000, -30000}
+
+for index in pairs(terrain_objects) do
+  terrain_objects[index]:setPosition(coordinates[1], coordinates[2])
+  coordinates[1] = coordinates[1] + 10000
+  coordinates[2] = coordinates[2] - 10000
+end
